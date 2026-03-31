@@ -329,6 +329,7 @@ chạy theo danh lợi phù du.
         },
       ],
     });
+    openVideoSidebar("video/ConSonCa.mp4", "🎬Ngâm thơ Côn Sơn Ca");
   });
 addLocationItem("Chí Linh – Côn Sơn", chiLinh, markerChiLinh, "dongbang");
 // ===== LAM KINH - THANH HÓA =====
@@ -491,6 +492,7 @@ Lấy chí nhân để thay cường bạo.”
         },
       ],
     });
+    openVideoSidebar("video/Binhngodaicao.mp4", "🎬Ngâm thơ Bình Ngô Đại Cáo");
   });
 
 addLocationItem("Lam Kinh - Lam Sơn", lamKinh, markerLamKinh, "bactrungbo");
@@ -658,6 +660,10 @@ coi trọng <b>hòa bình</b> và ý thức sâu sắc về
         },
       ],
     });
+    openVideoSidebar(
+      "video/BachDangHaiKhau.mp4",
+      "🎬Ngâm thơ Bạch Đằng hải khẩu",
+    );
   });
 addLocationItem("Cửa biển Bạch Đằng", bachDang, markerBachDang, "dongbang");
 // ===== NÚI DỤC THÚY (NON NƯỚC) =====
@@ -791,6 +797,7 @@ Tấm bia đá nói về ông đã lốm đốm rêu phong.)
         },
       ],
     });
+    closeVideoSidebar();
   });
 addLocationItem("Núi Dục Thúy", ducThuy, markerDucThuy, "bactrungbo");
 // ===== ĐỘNG THANH HƯ – CÔN SƠN =====
@@ -951,6 +958,7 @@ Chiêm bao thấy cưỡi hạc vàng lên cõi tiên.
         },
       ],
     });
+    openVideoSidebar("video/ConSonCa.mp4", "🎬Ngâm thơ Côn Sơn Ca");
   });
 addLocationItem("Động Thanh Hư - Chí Linh", thanhHu, markerThanhHu, "dongbang");
 // ===== VÂN ĐỒN – QUẢNG NINH =====
@@ -1115,6 +1123,7 @@ Nghe nói người thiểu số xưa từng đỗ thuyền trong vịnh.)
         },
       ],
     });
+    closeVideoSidebar();
   });
 addLocationItem("Vân Đồn", vanDon, markerVanDon, "dongbang");
 // ===== NÚI YÊN TỬ =====
@@ -1305,6 +1314,7 @@ Quái thạch châu lưu lạc bán không”
         },
       ],
     });
+    closeVideoSidebar();
   });
 addLocationItem("Núi Yên Tử", yenTu, markerYenTu, "dongbang");
 // ===== CHÙA NGỌC THANH – ĐÔNG TRIỀU =====
@@ -1406,6 +1416,7 @@ var markerNgocThanh = L.marker(ngocThanh, { icon: normalIcon })
         },
       ],
     });
+    closeVideoSidebar();
   });
 addLocationItem(
   "Chùa - quán Ngọc Thanh",
@@ -1558,6 +1569,7 @@ Bốn biển từ nay hết cảnh sóng kình.
         },
       ],
     });
+    closeVideoSidebar();
   });
 addLocationItem("Cửa biển Thần Phù", thanPhu, markerThanPhu, "bactrungbo");
 // ================= Thăng Long =================
@@ -1675,6 +1687,7 @@ var markerThangLong = L.marker(thangLong, { icon: normalIcon })
         },
       ],
     });
+    openVideoSidebar("video/Binhngodaicao.mp4", "🎬Ngâm thơ Bình Ngô Đại Cáo");
   });
 addLocationItem(
   "Hoàng thành Thăng Long",
@@ -1785,6 +1798,7 @@ chiến đấu để bảo vệ nhân dân và giành lại độc lập cho đ�
         },
       ],
     });
+    openVideoSidebar("video/Binhngodaicao.mp4", "🎬Ngâm thơ Bình Ngô Đại Cáo");
   });
 addLocationItem("Ải Chi Lăng", chiLang, markerChiLang, "dongbang");
 // ===== LÀNG NHỊ KHÊ (THƯỜNG TÍN - HÀ NỘI) =====
@@ -1873,6 +1887,7 @@ gắn với tên tuổi của vị anh hùng dân tộc và danh nhân văn hóa
         },
       ],
     });
+    closeVideoSidebar();
   });
 addLocationItem("Làng Nhị Khê", nhiKhe, markerNhiKhe, "dongbang");
 // ===== Chùa Đông Sơn =====
@@ -1976,6 +1991,7 @@ Di tích này góp phần phản ánh bối cảnh văn hóa và tinh thần
         },
       ],
     });
+    closeVideoSidebar();
   });
 addLocationItem("Chùa Đông Sơn", chuaDongSon, markerchuaDongSon, "bactrungbo");
 // ================= SIDEBAR =================
@@ -2039,6 +2055,7 @@ function closeSidebar() {
 }
 // ===== NÚT X =====
 document.getElementById("close-btn").addEventListener("click", function (e) {
+  closeVideoSidebar();
   e.stopPropagation(); // không cho map bắt sự kiện
   closeSidebar();
 });
@@ -2093,3 +2110,34 @@ window.addEventListener("load", () => {
     setTimeout(() => focusPlace(place), 700);
   }
 });
+const videoSidebar = document.getElementById("videoSidebar");
+const closeVideo = document.getElementById("closeVideo");
+const consonVideo = document.getElementById("consonVideo");
+
+// mở video sidebar với video cụ thể
+function openVideoSidebar(videoSrc, title) {
+  const video = document.getElementById("consonVideo");
+  const titleEl = document.querySelector(".video-header h3");
+
+  // Cập nhật video source
+  video.src = videoSrc;
+  video.load();
+
+  // Cập nhật title nếu có
+  if (title) {
+    titleEl.innerHTML = title;
+  }
+
+  videoSidebar.classList.add("active");
+}
+
+// đóng video sidebar
+function closeVideoSidebar() {
+  videoSidebar.classList.remove("active");
+  consonVideo.pause();
+}
+
+// đóng video
+closeVideo.onclick = () => {
+  closeVideoSidebar();
+};
