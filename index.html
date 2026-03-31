@@ -24,46 +24,49 @@
     </header>
 
     <div id="map"></div>
-<!-- SIDEBAR DANH SÁCH ĐỊA ĐIỂM -->
-<div id="locationList">
+    <!-- SIDEBAR DANH SÁCH ĐỊA ĐIỂM -->
+    <div id="locationList">
+      <h3>Vùng Đông Bắc Bộ & Đồng bằng sông Hồng</h3>
+      <ul id="dongBangSongHong"></ul>
 
-  <h3>Vùng Đông Bắc Bộ & Đồng bằng sông Hồng</h3>
-  <ul id="dongBangSongHong"></ul>
-
-  <h3>Bắc Trung Bộ</h3>
-  <ul id="bacTrungBo"></ul>
-
-</div>
-    <!-- SIDEBAR -->
-<!-- SIDEBAR -->
-<div id="sidebar">
-
-  <div class="sidebar-header">
-    <h2 id="title"></h2>
-    <button id="close-btn">✕</button>
-  </div>
-
-  <div id="sidebar-content">
-    
-    <div class="image-container">
-      <button class="arrow-btn left-arrow" onclick="prevImage()">
-        <img src="img/left.png" />
-      </button>
-
-      <img class="main-image" id="slider" />
-
-      <button class="arrow-btn right-arrow" onclick="nextImage()">
-        <img src="img/right.png" />
-      </button>
+      <h3>Bắc Trung Bộ</h3>
+      <ul id="bacTrungBo"></ul>
     </div>
+    <!-- SIDEBAR -->
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+      <div class="sidebar-header">
+        <h2 id="title"></h2>
+        <button id="close-btn">✕</button>
+      </div>
 
-    <div id="description" class="slide-text"></div>
+      <div id="sidebar-content">
+        <div class="image-container">
+          <button class="arrow-btn left-arrow" onclick="prevImage()">
+            <img src="img/left.png" />
+          </button>
 
-  </div>
-</div>
+          <img class="main-image" id="slider" />
 
-        <!-- nội dung slide -->
+          <button class="arrow-btn right-arrow" onclick="nextImage()">
+            <img src="img/right.png" />
+          </button>
+        </div>
+
         <div id="description" class="slide-text"></div>
+      </div>
+    </div>
+    <!-- 🎬 SIDEBAR VIDEO CÔN SƠN -->
+    <div id="videoSidebar">
+      <div class="video-header">
+        <h3>🎬Ngâm thơ Côn Sơn Ca</h3>
+        <button id="closeVideo">✕</button>
+      </div>
+
+      <div class="video-wrapper">
+        <video id="consonVideo" controls>
+          <source src="video/ConSonCa.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
 
